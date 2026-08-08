@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
-import { NAV_LINKS } from "@/lib/data";
+import { NAV_LINKS, SITE } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import MagneticButton from "./ui/MagneticButton";
 
@@ -70,7 +70,7 @@ export default function Navbar() {
             className="flex items-center gap-2 font-mono text-sm font-semibold tracking-wide text-white"
           >
             <Sparkles className="h-4 w-4 text-cyan-300" aria-hidden="true" />
-            Abhinav<span className="text-cyan-300">.dev</span>
+            {SITE.name}
           </a>
 
           {/* Desktop links */}
@@ -105,11 +105,7 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden md:block">
-            <MagneticButton
-              href="#contact"
-              onClick={() => handleNavClick("#contact")}
-              className="!px-5 !py-2.5 text-xs"
-            >
+            <MagneticButton href="#contact" onClick={() => handleNavClick("#contact")} className="!px-5 !py-2.5 text-xs">
               Build With Me
             </MagneticButton>
           </div>
@@ -158,11 +154,7 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="mt-3 px-1">
-              <MagneticButton
-                href="#contact"
-                onClick={() => handleNavClick("#contact")}
-                className="w-full"
-              >
+              <MagneticButton href="#contact" onClick={() => handleNavClick("#contact")} className="w-full">
                 Build With Me
               </MagneticButton>
             </div>
