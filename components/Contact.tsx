@@ -9,8 +9,8 @@ import MagneticButton from "./ui/MagneticButton";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
-// Use an env var on the client (NEXT_PUBLIC_) with a safe fallback to the current key.
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "10522f2c-f920-42f9-9f03-e23ecf6eb8a2";
+// Read the Web3Forms key from an environment variable. No fallback to avoid committing secrets.
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 export default function Contact() {
   const [formState, setFormState] = useState<FormState>("idle");
@@ -24,6 +24,14 @@ export default function Contact() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!values.name || !values.email || !values.message) return;
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      // Fail fast if the key is missing in the environment
+      console.error("Missing NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY");
+      setFormState("error");
+      setTimeout(() => setFormState("idle"), 2600);
+      return;
+    }
 
     setFormState("loading");
 
