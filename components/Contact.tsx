@@ -33,15 +33,17 @@ export default function Contact() {
     }, 1400);
   }
 
-  const fields: {
-    key: keyof typeof values;
-    label: string;
-    type: string;
-    placeholder: string;
-  }[] = [
-    { key: "name", label: "Name", type: "text", placeholder: "Your name" },
-    { key: "email", label: "Email", type: "email", placeholder: "you@email.com" },
-  ];
+  
+const fields: {
+  key: keyof typeof values;
+  label: string;
+  type: string;
+  placeholder: string;
+}[] = [
+  { key: "name", label: "Name", type: "text", placeholder: "Your Name" },
+  { key: "email", label: "Email", type: "email", placeholder: "you@email.com" }
+];
+
 
   return (
     <section id="contact" className="relative px-6 py-28">
