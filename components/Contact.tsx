@@ -46,7 +46,7 @@ const fields: {
 
 
   return (
-    <section id="contact" className="relative px-6 py-28">
+    <"section id="contact" className="relative px-6 py-28">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Contact"
