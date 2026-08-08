@@ -54,7 +54,7 @@ export default function Contact() {
 
         <Reveal>
           <div className="glass rounded-3xl border border-obsidian-border p-6 sm:p-10">
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <form action=https://api.web3forms.com/submit method="POST" className="space-y-6" noValidate>
               <div className="grid gap-6 sm:grid-cols-2">
                 {fields.map((field) => (
                   <div key={field.key} className="relative">
